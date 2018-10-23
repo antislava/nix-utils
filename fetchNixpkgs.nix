@@ -1,3 +1,4 @@
+# Source: https://github.com/awakesecurity/nix-deploy/blob/master/nix/fetchNixpkgs.nix
 { rev                             # The Git revision of nixpkgs to fetch
 , sha256                          # The SHA256 hash of the unpacked archive
 , system ? builtins.currentSystem # This is overridable if necessary
