@@ -1,4 +1,4 @@
-# USAGE:
+# USAGE (nix repl):
 # rc = import ./. {} # reflex project derivation (normally default.nix)
 # unpck = import nix-tags/do-unpack-source.nix
 # :b unpck rc.ghc.zenc rc.reflex.nixpkgs

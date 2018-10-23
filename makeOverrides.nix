@@ -8,4 +8,3 @@ function: names: haskellPackagesNew: haskellPackagesOld:
 
 in
   builtins.listToAttrs (map toPackage names)
-

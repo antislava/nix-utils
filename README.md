@@ -1,5 +1,21 @@
 Unsorted collection of nix functions (primarily for haskell development and scripting in nix shell).
 
+## Overview
+
+### General
+[fetchNixpkgs.nix](fetchNixpkgs.nix) - Fetch a specific snapshot of `nixpkgs`. Necessary for reproducibility
+
+### Haskell package soruce extraction
+[do-unpack-source.nix](do-unpack-source.nix)
+[extract-haskell-sources.nix](extract-haskell-sources.nix)
+
+### Haskell package soruce extraction
+[makeOverrides.nix](makeOverrides.nix) - Apply a given override function to a list packages
+[query-haskell-package.nix](query-haskell-package.nix) - Extract components of the standard haskell package `default.nix`
+[callFromDirectory.nix](callFromDirectory.nix) - call packages from a directory given a package name list
+[readDirectory.nix](readDirectory.nix) - call *all* functions from a directory
+
+
 ## To-do's and outstanding issues
 
 ### Extracting dependencies for custom shells
