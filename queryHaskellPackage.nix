@@ -36,7 +36,7 @@
 stdenv: fakeDerivation: ps: path:
 # pkgs: fakeDerivation: ps: path:
 let f = import path;
- in with pkgs;
+ in # with pkgs;
     f (builtins.intersectAttrs
         (builtins.functionArgs f)
         # ps // {stdenv = stdenv; mkDerivation = fakeDerivation;})
