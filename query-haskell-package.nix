@@ -16,6 +16,7 @@
 # q.libraryHaskellDepends
 # # [ null null null ]
 # # packages implicitly included with ghc are set to 'null'
+# # https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/8.4.2-notes.html#included-libraries
 # # (see pkgs/development/haskell-modules/configuration-ghc-x.x.x.nix)
 
 # q.testHaskellDepends
@@ -32,9 +33,11 @@
 #   , ...}:
 #   buildDepends ++ libraryHaskellDepends ++ executableHaskellDepends ++ libraryToolDepends ++ executableToolDepends ++ testHaskellDepends;
 
-pkgs: fakeDerivation: ps: path:
+stdenv: fakeDerivation: ps: path:
+# pkgs: fakeDerivation: ps: path:
 let f = import path;
  in with pkgs;
     f (builtins.intersectAttrs
         (builtins.functionArgs f)
-        ps // {stdenv = stdenv; mkDerivation = fakeDerivation;})
+        # ps // {stdenv = stdenv; mkDerivation = fakeDerivation;})
+        ps // {inherit stdenv; mkDerivation = fakeDerivation;})
