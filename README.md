@@ -1,5 +1,7 @@
 Unsorted collection of nix functions (primarily for haskell development and scripting in nix shell).
 
+## TODO: Update after changing naming convention (to the CamelCase)
+
 ## Overview
 
 ### General
