@@ -5,7 +5,7 @@ export branch=`basename $rev || echo ""`
 # echo $branch
 uribase=/r-cache/git
 uri=$uribase/github.com/$owner/$repo
-git --git-dir $uri fetch --all
+git --git-dir $uri fetch --all --quite
 # echo $cached
 nix-prefetch-git $uri --rev $rev \
   | jq '{ owner:"$owner", repo:"$repo", branch:"$branch", rev, sha256 }' \
