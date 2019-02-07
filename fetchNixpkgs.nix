@@ -3,10 +3,11 @@
 , rev                             # The Git revision of nixpkgs to fetch
 , sha256                          # The SHA256 hash of the unpacked archive
 , system ? builtins.currentSystem # This is overridable if necessary
+, ...
 }:
 
-if ( (builtins.substring 0 32 url == "https://github.com/NixOS/nixpkgs")
-  || (builtins.substring 0 31 url == "http://github.com/NixOS/nixpkgs"))
+if ((builtins.substring 0 18 url == "https://github.com")
+|| ( builtins.substring 0 17 url == "http://github.com"))
 
 then (
   if (0 <= builtins.compareVersions builtins.nixVersion "1.12")
@@ -14,7 +15,7 @@ then (
 # In Nix 1.12, we can just give a `sha256` to `builtins.fetchTarball`.
   then (
     builtins.fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
+      url = "${url}/archive/${rev}.tar.gz";
       inherit sha256;
     })
 
@@ -22,7 +23,7 @@ then (
   else (
     (rec {
       tarball = import <nix/fetchurl.nix> {
-        url    = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
+        url    = "${url}/archive/${rev}.tar.gz";
         sha256 = null;
       };
 
