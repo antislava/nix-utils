@@ -33,7 +33,8 @@
 #   , ...}:
 #   buildDepends ++ libraryHaskellDepends ++ executableHaskellDepends ++ libraryToolDepends ++ executableToolDepends ++ testHaskellDepends;
 
-stdenv: fakeDerivation: ps: path:
+stdenv: fakeDerivation: path: ps:
+# stdenv: fakeDerivation: ps: path:
 # pkgs: fakeDerivation: ps: path:
 let f = import path;
  in # with pkgs;
